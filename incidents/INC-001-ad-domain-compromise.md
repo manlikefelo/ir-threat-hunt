@@ -4,7 +4,7 @@
 **Source of truth:** Wazuh SIEM (DC01 agent), custom rules 100011–100013
 
 An investigation, from the defender's chair, of the attack I ran in my
-[ad-attack-chain](../../ad-attack-chain) repo. Structured on the **NIST SP 800-61
+[ad-attack-chain](https://github.com/manlikefelo/ad-attack-chain) repo. Structured on the **NIST SP 800-61
 incident-response lifecycle**.
 
 ---
@@ -27,9 +27,9 @@ alert timestamps and `data.win.*` fields:
 
 | # | Timestamp (UTC) | Host | Event / rule | ATT&CK | Evidence source |
 |---|-----------------|------|--------------|--------|-----------------|
-| 1 | 2026-07-30 20:54:09 | DC01 | Rule **100011** — AS-REP roast: 4768, preAuthType 0, RC4, target `b.otieno`, src `10.10.10.40` | T1558.004 | [alert JSON](../../ad-attack-chain/engagement/02-asrep-roasting/evidence/wazuh_alert_100011.json) |
-| 2 | 2026-07-31 02:00:34 | DC01 | Rule **100012** — DCSync: 4662, replication GUID `1131f6aa…`, subject `b.otieno` (non-DC), src `10.10.10.40` | T1003.006 | [alert JSON](../../ad-attack-chain/engagement/03-dcsync/evidence/wazuh_alert_100012.json) |
-| 3 | 2026-07-31 02:01:49 | DC01 | Rule **100013** — enumeration burst: 4662 read spike (BloodHound), src `10.10.10.40` | T1087.002 | [alert JSON](../../ad-attack-chain/engagement/04-bloodhound/evidence/wazuh_alert_100013.json) |
+| 1 | 2026-07-30 20:54:09 | DC01 | Rule **100011** — AS-REP roast: 4768, preAuthType 0, RC4, target `b.otieno`, src `10.10.10.40` | T1558.004 | [alert JSON](https://github.com/manlikefelo/ad-attack-chain/blob/main/engagement/02-asrep-roasting/evidence/wazuh_alert_100011.json) |
+| 2 | 2026-07-31 02:00:34 | DC01 | Rule **100012** — DCSync: 4662, replication GUID `1131f6aa…`, subject `b.otieno` (non-DC), src `10.10.10.40` | T1003.006 | [alert JSON](https://github.com/manlikefelo/ad-attack-chain/blob/main/engagement/03-dcsync/evidence/wazuh_alert_100012.json) |
+| 3 | 2026-07-31 02:01:49 | DC01 | Rule **100013** — enumeration burst: 4662 read spike (BloodHound), src `10.10.10.40` | T1087.002 | [alert JSON](https://github.com/manlikefelo/ad-attack-chain/blob/main/engagement/04-bloodhound/evidence/wazuh_alert_100013.json) |
 
 ```mermaid
 timeline
@@ -90,10 +90,10 @@ Immediate actions a defender should take:
 
 - **Detection gap closed forward:** the ~5h dwell between roast and DCSync is a window a
   faster alert-to-response could have caught. Feeds a detection-improvement to
-  [detection-engineering](../../detection-engineering): alert on *any* non-DC principal
+  [detection-engineering](https://github.com/manlikefelo/detection-engineering): alert on *any* non-DC principal
   using replication rights at **level 12 (page-worthy)**, which rule 100012 already does.
 - **Root cause was configuration, not exploitation:** one over-permissioned account
   (`b.otieno`: pre-auth off + replication rights + Domain Admins). The fix is least
-  privilege and tiered admin — see the [remediation plan](../../ad-attack-chain/remediation.md).
+  privilege and tiered admin — see the [remediation plan](https://github.com/manlikefelo/ad-attack-chain/blob/main/remediation.md).
 - **Preparation paid off:** without the DS-Access auditing + SACL enabled in phase 1,
   steps 2–3 would have been invisible.

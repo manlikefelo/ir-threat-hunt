@@ -4,7 +4,7 @@
 **Source of truth:** Wazuh SIEM (UB01 agent, DVWA access log), rules 100014 / 100015
 
 The defender's investigation of the web attacks I ran in my
-[webapp-pentest-juiceshop](../../webapp-pentest-juiceshop) repo. NIST IR lifecycle.
+[webapp-pentest-juiceshop](https://github.com/manlikefelo/webapp-pentest-juiceshop) repo. NIST IR lifecycle.
 
 ---
 
@@ -71,7 +71,7 @@ blocked/redirected attempt would be 3xx/4xx).
 - **Detection tuning matters more than detection logic:** the SQLi rule was "correct"
   yet initially caught nothing because it matched a literal space, not the encoded
   `%20`. Detections must be validated against **captured real traffic**. This is written
-  up as FP-3 in [detection-engineering/docs/tuning-log.md](../../detection-engineering/docs/tuning-log.md).
+  up as FP-3 in [detection-engineering/docs/tuning-log.md](https://github.com/manlikefelo/detection-engineering/blob/main/docs/tuning-log.md).
 - **Log the right layer:** the win here was tailing the Apache access log, where the full
   malicious URI is visible. Application-level logs alone would have shown a DB error at
   best.

@@ -1,9 +1,9 @@
 # Incident Response & Threat Hunting 🔵
 
 The defender's chair for the whole portfolio. I attacked an Active Directory domain
-([ad-attack-chain](../ad-attack-chain)) and two web apps
-([webapp-pentest-juiceshop](../webapp-pentest-juiceshop)); I detected those attacks
-([detection-engineering](../detection-engineering)); **here I investigate and respond to
+([ad-attack-chain](https://github.com/manlikefelo/ad-attack-chain)) and two web apps
+([webapp-pentest-juiceshop](https://github.com/manlikefelo/webapp-pentest-juiceshop)); I detected those attacks
+([detection-engineering](https://github.com/manlikefelo/detection-engineering)); **here I investigate and respond to
 them as incidents** — reconstructing timelines from the logs, triaging, and writing the
 response the way a SOC lead would actually read it.
 
