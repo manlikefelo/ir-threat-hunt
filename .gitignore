@@ -1,0 +1,19 @@
+# === Secrets / local-only — never commit ===
+.env
+*.env
+!.env.example
+*.local
+# human-voiced social drafts, kept local only
+content/
+
+# Credentials / keys
+*.pem
+*.key
+*.pfx
+
+# === OS / editor cruft ===
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
