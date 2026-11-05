@@ -1,9 +1,9 @@
-# === Secrets / local-only — never commit ===
+# === Secrets / local-only - never commit ===
 .env
 *.env
 !.env.example
 *.local
-# human-voiced social drafts, kept local only
+# Local notes
 content/
 
 # Credentials / keys
