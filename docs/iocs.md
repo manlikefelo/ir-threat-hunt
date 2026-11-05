@@ -11,7 +11,7 @@ clean and copy-pasteable.
 
 | Type | Indicator | Context |
 |------|-----------|---------|
-| IP | `10.10.10.40` | Attacker host (Kali) — source of all AD attacks in INC-001 |
+| IP | `10.10.10.40` | Attacker host (Kali), source of all AD attacks in INC-001 |
 | IP | `10.10.10.30` | Victim host (UB01) generating the web-attack requests in INC-002 |
 
 ## Host / identity

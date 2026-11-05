@@ -1,4 +1,4 @@
-# Triage playbook — AD & web attack alerts
+# Triage playbook: AD & web attack alerts
 
 A reusable decision tree for the alert types in this lab. The goal: a consistent,
 defensible triage a SOC analyst can follow under pressure, with clear escalation
@@ -22,7 +22,7 @@ flowchart TD
 
 ---
 
-## Rule 100012 — DCSync (level 12, critical)
+## Rule 100012: DCSync (level 12, critical)
 
 **What to check**
 1. Is `subjectUserName` a **Domain Controller machine account** (ends in `$`) or
@@ -35,7 +35,7 @@ assume full domain compromise.
 
 **Containment:** disable the account, isolate the source host, **rotate krbtgt twice**.
 
-## Rule 100011 — AS-REP Roasting (level 10)
+## Rule 100011: AS-REP Roasting (level 10)
 
 **What to check**
 1. `preAuthType 0` on the 4768 → the account has pre-auth disabled (abnormal).
@@ -49,7 +49,7 @@ movement from the same source).
 **Containment:** re-enable pre-auth on the account; force a password reset (assume the
 hash is being cracked offline).
 
-## Rule 100010 — Kerberoasting (level 10)
+## Rule 100010: Kerberoasting (level 10)
 
 **What to check**
 1. `ticketEncryptionType 0x17` (RC4) for an SPN `serviceName`.
@@ -61,10 +61,10 @@ account's password is being cracked.
 
 **Containment:** rotate the service account password (prefer gMSA); force AES.
 
-## Rules 100014 / 100015 — Web SQLi / XSS (level 12 / 10)
+## Rules 100014 / 100015: Web SQLi / XSS (level 12 / 10)
 
 **What to check**
-1. Inspect `data.log` — the full request URI. Is the payload a real injection
+1. Inspect `data.log`: the full request URI. Is the payload a real injection
    (`UNION SELECT`, `<script>`) or a substring false positive?
 2. **Response code**: 200 on an injection request suggests success; 3xx/4xx suggests
    blocked/redirected.
@@ -82,8 +82,8 @@ reset any exposed credentials.
 
 | Signal | Confidence | Action |
 |--------|-----------|--------|
-| DCSync by non-DC | Near-certain | P1 now — domain compromise |
-| Successful web SQLi (200 + large response) | High | P1 — DB/cred exposure |
-| AS-REP / Kerberoast (RC4) TP | High | P2 — offline cracking in progress |
+| DCSync by non-DC | Near-certain | P1 now, domain compromise |
+| Successful web SQLi (200 + large response) | High | P1: DB/cred exposure |
+| AS-REP / Kerberoast (RC4) TP | High | P2, offline cracking in progress |
 | Enumeration burst alone | Low | Hunt / watch; escalate if corroborated |
-| Signal from allow-listed benign source | — | Close as FP, log it |
+| Signal from allow-listed benign source | - | Close as FP, log it |
