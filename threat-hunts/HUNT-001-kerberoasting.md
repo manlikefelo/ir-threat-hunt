@@ -38,8 +38,8 @@ service-ticket request is the crackable case Kerberoasting depends on. A cluster
 TGS requests for SPN accounts, especially from one source, is the signature.
 
 Supporting pivots once a hit is found:
-- Group by `serviceName` → which service accounts are being targeted.
-- Group by `ipAddress` / `targetUserName` → who is doing the requesting.
+- Group by `serviceName`: which service accounts are being targeted.
+- Group by `ipAddress` / `targetUserName`: who is doing the requesting.
 - Cross-reference SPN accounts with weak-password / RC4-enabled accounts (the actual
   exposure).
 

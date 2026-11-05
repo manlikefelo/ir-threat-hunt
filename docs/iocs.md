@@ -35,7 +35,7 @@ clean and copy-pasteable.
 
 ## Credential exposure (INC-001 / INC-002)
 
-- **All domain NTLM hashes** (via DCSync), including **`krbtgt`** → assume Golden Ticket
+- **All domain NTLM hashes** (via DCSync), including **`krbtgt`**, so assume Golden Ticket
   capability; rotate krbtgt twice.
 - **DVWA `users` table** (via UNION SQLi): 5 accounts, unsalted MD5, all cracked
   (`admin`, `gordonb`, `1337`, `pablo`, `smithy`).

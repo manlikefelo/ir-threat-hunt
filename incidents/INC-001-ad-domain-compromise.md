@@ -47,7 +47,7 @@ attacker IP `10.10.10.40`:
 1. **AS-REP roasting** harvested `b.otieno`'s crackable hash with *no credentials*:
    the initial foothold.
 2. **DCSync** ~5 hours later used `b.otieno`'s replication rights to pull **every**
-   domain hash, including `krbtgt`. That's the "game over" moment (Golden Ticket
+   domain hash, including `krbtgt`. That is full domain compromise (Golden Ticket
    capability = persistent domain control).
 3. **BloodHound enumeration** mapped the domain graph, confirming `b.otieno`'s paths to
    Domain Admin.

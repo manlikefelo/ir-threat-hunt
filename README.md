@@ -24,7 +24,7 @@ playbooks/    reusable triage decision tree + escalation criteria
 docs/iocs.md  extracted indicators of compromise
 ```
 
-## The headline artifact: the timeline
+## The timeline
 
 Each incident reconstructs the attack as a **timeline built from log evidence** (a
 mermaid diagram + an evidence table mapping each step to a timestamp, host, ATT&CK
@@ -37,7 +37,7 @@ investigate,"* so they lead each report:
 - **[INC-002](incidents/INC-002-web-application-attack.md)**: an XSS probe escalating to
   a successful UNION SQL injection against the DVWA `users` table.
 
-## How I think under pressure (the part interviewers probe)
+## Triage reasoning
 
 Each report shows the **triage reasoning**, *why* each alert is a true positive vs a
 false positive, because "walk me through how you'd investigate this" is the question you
@@ -64,4 +64,4 @@ Log analysis · timeline reconstruction · NIST IR lifecycle · true/false-posit
 communication for a technical-lead audience.
 
 ## Read next
-- **[`docs/reviewer-path.md`](docs/reviewer-path.md)**: a 3-minute guided tour.
+- **[`docs/reviewer-path.md`](docs/reviewer-path.md)**: a short guide to this repo.

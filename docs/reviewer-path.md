@@ -1,4 +1,4 @@
-# Reviewer path: a 3-minute tour
+# Repo guide
 
 The fastest route through this repo, in the order that best shows investigative skill.
 
@@ -27,7 +27,7 @@ are roastable at all).
 
 ---
 
-**What this repo proves:** I can take raw SIEM alerts, reconstruct what happened into a
+**What this repo shows:** I can take raw SIEM alerts, reconstruct what happened into a
 coherent timeline, triage true vs false positives with defensible reasoning, hunt
 proactively, and communicate all of it the way a SOC lead needs to read it. Paired with
 the attack and detection repos, it completes the purple-team story: I attacked, I
